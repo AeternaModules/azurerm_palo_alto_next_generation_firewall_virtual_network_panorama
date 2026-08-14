@@ -8,7 +8,7 @@ output "palo_alto_next_generation_firewall_virtual_network_panoramas_destination
 }
 output "palo_alto_next_generation_firewall_virtual_network_panoramas_dns_settings" {
   description = "Map of dns_settings values across all palo_alto_next_generation_firewall_virtual_network_panoramas, keyed the same as var.palo_alto_next_generation_firewall_virtual_network_panoramas"
-  value       = { for k, v in azurerm_palo_alto_next_generation_firewall_virtual_network_panorama.palo_alto_next_generation_firewall_virtual_network_panoramas : k => v.dns_settings if v.dns_settings != null && length(v.dns_settings) > 0 }
+  value       = { for k, v in azurerm_palo_alto_next_generation_firewall_virtual_network_panorama.palo_alto_next_generation_firewall_virtual_network_panoramas : k => one(v.dns_settings) if v.dns_settings != null && length(v.dns_settings) > 0 }
 }
 output "palo_alto_next_generation_firewall_virtual_network_panoramas_location" {
   description = "Map of location values across all palo_alto_next_generation_firewall_virtual_network_panoramas, keyed the same as var.palo_alto_next_generation_firewall_virtual_network_panoramas"
@@ -24,7 +24,7 @@ output "palo_alto_next_generation_firewall_virtual_network_panoramas_name" {
 }
 output "palo_alto_next_generation_firewall_virtual_network_panoramas_network_profile" {
   description = "Map of network_profile values across all palo_alto_next_generation_firewall_virtual_network_panoramas, keyed the same as var.palo_alto_next_generation_firewall_virtual_network_panoramas"
-  value       = { for k, v in azurerm_palo_alto_next_generation_firewall_virtual_network_panorama.palo_alto_next_generation_firewall_virtual_network_panoramas : k => v.network_profile if v.network_profile != null && length(v.network_profile) > 0 }
+  value       = { for k, v in azurerm_palo_alto_next_generation_firewall_virtual_network_panorama.palo_alto_next_generation_firewall_virtual_network_panoramas : k => one(v.network_profile) if v.network_profile != null && length(v.network_profile) > 0 }
 }
 output "palo_alto_next_generation_firewall_virtual_network_panoramas_panorama" {
   description = "Map of panorama values across all palo_alto_next_generation_firewall_virtual_network_panoramas, keyed the same as var.palo_alto_next_generation_firewall_virtual_network_panoramas"
